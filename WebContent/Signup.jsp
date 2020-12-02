@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Sign up</title>
 </head>
-<body bgcolor="pink">
-	<form action="Login" method="post">
+<body>
+	<form action="Signup" method="post">
+		Enter First Name: <input type="text" name="first_name"> <br>
+		Enter Last Name: <input type="text" name="last_name"> <br>
 		Enter Username: <input type="text" name="username"> <br>
 		Enter Password: <input type="password" name="passwd"> <br>
-		<input type="submit" value="Login">  <br>
+		Enter Email: <input type="text" name="email"> <br>
+		<input type="submit" value="Submit">
 	</form>
-	
-	<form action="Signup.jsp" method="post">
-		<input type="submit" value="Signup">
-	</form>
-	
 </body>
 </html>
