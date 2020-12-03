@@ -22,7 +22,6 @@ public class Login extends HttpServlet {
 		
 		LoginDao dao = new LoginDao();
 		
-		
 				try {
 					if (dao.validate(username, passwd)) {
 						HttpSession session = request.getSession();
