@@ -8,12 +8,18 @@
 </head>
 <body bgcolor="pink">
 	<form action="Login" method="post">
-		Enter Username: <input type="text" name="username"> <br>
-		Enter Password: <input type="password" name="passwd"> <br>
-		<input type="submit" value="Login">  <br>
+	<div>
+		<label>Enter Username:</label>
+		<input type="text" name="username">
+	</div>
+	<div>
+		<label>Enter Password:</label>
+		<input type="password" name="passwd">
+	</div>
+	<input type="submit" value="Login">  <br>
 	</form>
 	
-	<form action="Signup.jsp" method="post">
+	<form action="signup.jsp" method="post">
 		<input type="submit" value="Signup">
 	</form>
 	

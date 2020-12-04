@@ -16,10 +16,14 @@
 			response.sendRedirect("login.jsp");
 		}
 	%>
-
+	
 	WELCOME TO THE ONLINE LIBRARY SYSTEM!
 	
-	<a href="tobe.jsp">something</a>
+	<a href="bookshelf.jsp">View Bookshelf</a>
+	<a href="holds.jsp">View Holds</a>
+	<a href="fines.jsp">View Fines</a>
+	<a href="history.jsp">View History</a>
+
 	
 	<form action="Logout">
 		<input type="submit" value="Logout">

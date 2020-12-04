@@ -7,16 +7,16 @@ import java.sql.PreparedStatement;
 
 public class LoginDao {
 	
-	String query = "SELECT * FROM user_login WHERE username=? and password=?";
+	String query = "SELECT * FROM users WHERE username=? and password=?";
 
 	public boolean validate(String username, String passwd) throws SQLException {
 		
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DBConnection.getConnection();
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DBConnection.getConnection();
 			
-			PreparedStatement ps = con.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			ps.setString(2, passwd);
 			
