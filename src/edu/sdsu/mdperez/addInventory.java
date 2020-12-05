@@ -45,10 +45,8 @@ public class addInventory extends HttpServlet {
 				publisher.isEmpty() || material_type.isEmpty() || release_date.isEmpty() ||
 				genre.isEmpty() || category.isEmpty())
 			{
-				
 				RequestDispatcher req = request.getRequestDispatcher("addInventory.jsp");
 				req.include(request, response);
-				
 			}
 			else {
 				
@@ -58,12 +56,11 @@ public class addInventory extends HttpServlet {
 					
 					PreparedStatement ps = conn.prepareStatement(addQuery);
 					ps.executeUpdate(addQuery);
-					//System.out.println(i);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
-				response.sendRedirect("dashboard.jsp");
+				response.sendRedirect("staffDashboard.jsp");
 				
 			}
 		

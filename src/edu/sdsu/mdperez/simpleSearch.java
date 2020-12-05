@@ -20,8 +20,8 @@ public class simpleSearch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String keyword = request.getParameter("simpleSearch");
 		
-		String query = "SELECT author, title, genre, book_desc, extra_genre, extra_genre2, material_type "
-				+ "FROM inventory WHERE MATCH(author, title, genre, extra_genre, extra_genre2, material_type) "
+		String query = "SELECT * "
+				+ "FROM inventory WHERE MATCH(author, title, genre, extra_genre, extra_genre2) "
 				+ "AGAINST('+"+keyword+"')";
 		
 		try {
@@ -33,7 +33,7 @@ public class simpleSearch extends HttpServlet {
 			ResultSet rs = ps.executeQuery(query);
 			
 			while(rs.next()) {
-				System.out.println(rs.getString(1) );
+				System.out.println(rs.getString(2) );
 			}
 			
 		}

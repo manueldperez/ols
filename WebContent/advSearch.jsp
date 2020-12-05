@@ -16,18 +16,15 @@
 		}
 	%>
 
-	<h2> Sign Up</h2>
+	<h2>Advanced Search</h2>
 	<form action="AdvSearch" method="post">
 		<div>
-			<!-- <label>Enter First Name:</label> -->
 			<input type="text" name="author" placeholder="Author">
 		</div>
 		<div>
-			<!-- <label>Enter Last Name:</label -->
 			<input type="text" name="title" placeholder="Title">
 		</div>
 		<div>
-			<!-- <label>Enter Username:</label> -->
 			<input type="text" name="keyword" placeholder="Keyword">
 		</div>
 		<div>

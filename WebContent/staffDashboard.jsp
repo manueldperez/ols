@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Staff Dashboard</title>
 </head>
 <body bgcolor="gray">
 	
@@ -28,8 +28,6 @@
 		<input type="search" name="simpleSearch">
 	<button>Search</button>
 	</form>
-	
-
 	
 	<form action="Logout">
 		<input type="submit" value="Logout">

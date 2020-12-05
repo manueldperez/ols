@@ -1,15 +1,15 @@
 package edu.sdsu.mdperez.dao;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class LoginDao {
+public class accessType {
 	
-	String query = "SELECT user_id FROM users WHERE username=? and password=?";
+	String query = "SELECT access_type FROM users WHERE user_id=?";
 
-	public int validate(String username, String passwd) throws SQLException {
+	public String userAccess(int user_id) throws SQLException {
 		
 		try {
 			
@@ -17,12 +17,12 @@ public class LoginDao {
 			Connection conn = DBConnection.getConnection();
 			
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, username);
-			ps.setString(2, passwd);
+			ps.setInt(1, user_id);
 			
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				return rs.getInt(1);
+				System.out.println(rs.getNString(1));
+				return rs.getNString(1);
 			}
 			
 			
@@ -30,7 +30,7 @@ public class LoginDao {
 			e.printStackTrace();
 		}
 		
-		return -1;
+		return null;
 	}
-	
+
 }
