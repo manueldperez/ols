@@ -24,9 +24,11 @@ public class Login extends HttpServlet {
 		LoginDao dao = new LoginDao();
 		
 				try {
-					if (dao.validate(username, passwd)) {
+					int user_id = dao.validate(username, passwd);
+					if (user_id != -1) {
 						HttpSession session = request.getSession();
 						session.setAttribute("username", username);
+						session.setAttribute("user_id", user_id);
 						response.sendRedirect("dashboard.jsp");
 					}
 					else {

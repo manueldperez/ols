@@ -7,9 +7,9 @@ import java.sql.PreparedStatement;
 
 public class LoginDao {
 	
-	String query = "SELECT * FROM users WHERE username=? and password=?";
+	String query = "SELECT user_id FROM users WHERE username=? and password=?";
 
-	public boolean validate(String username, String passwd) throws SQLException {
+	public int validate(String username, String passwd) throws SQLException {
 		
 		try {
 			
@@ -22,7 +22,8 @@ public class LoginDao {
 			
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				return true;
+				System.out.println(rs.getInt(1));
+				return rs.getInt(1);
 			}
 			
 			
@@ -30,7 +31,7 @@ public class LoginDao {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return -1;
 	}
 	
 }
