@@ -9,7 +9,6 @@
 <body bgcolor="gray">
 	
 	<%
-	
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	
 		if (session.getAttribute("username") == null) {
@@ -23,6 +22,13 @@
 	<a href="holds.jsp">View Holds</a>
 	<a href="fines.jsp">View Fines</a>
 	<a href="history.jsp">View History</a>
+	<a href="addInventory.jsp">Add Inventory</a>
+	
+	<form action="simpleSearch" method="post">
+		<input type="search" name="simpleSearch">
+	<button>Search</button>
+	</form>
+	
 
 	
 	<form action="Logout">

@@ -50,21 +50,22 @@ CREATE TABLE `inventory` (
   `product_id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `author` varchar(45) NOT NULL,
+  `book_desc` varchar(1000) NOT NULL,
   `publisher` varchar(45) NOT NULL,
   `material_type` varchar(45) NOT NULL,
   `release_date` datetime NOT NULL,
   `file_size` decimal(4,2) DEFAULT NULL,
-  `ISBN` varchar(45) NOT NULL,
+  `ISBN` varchar(45) DEFAULT NULL,
   `genre` varchar(45) NOT NULL,
   `extra_genre` varchar(45) DEFAULT NULL,
   `extra_genre2` varchar(45) DEFAULT NULL,
   `category` varchar(45) NOT NULL,
-  `extra_category` varchar(45) DEFAULT NULL,
-  `extra_category2` varchar(45) DEFAULT NULL,
-  `return_date` datetime NOT NULL,
+  `book_cover_img` blob,
+  `dig_rights_info` varchar(45) DEFAULT NULL,
+  `return_date` datetime DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   FULLTEXT KEY `author` (`author`,`title`,`genre`,`extra_genre`,`extra_genre2`,`material_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,6 +74,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
+INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01 00:00:00',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights',NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +101,7 @@ CREATE TABLE `users` (
   `materials_returned_id` int DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +110,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(4,'asdf','g','g','g','g@g','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(5,'asd','asd','asd','asd','asd@asd','Patron',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-04 11:43:12
+-- Dump completed on 2020-12-04 21:19:23

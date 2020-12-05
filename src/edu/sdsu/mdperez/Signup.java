@@ -32,7 +32,7 @@ public class Signup extends HttpServlet {
 			passwd.isEmpty() || email.isEmpty() || accessType.isEmpty()) 
 		{
 			
-			RequestDispatcher req = request.getRequestDispatcher("Signup.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("signup.jsp");
 			req.include(request, response);
 			
 		}
@@ -44,6 +44,7 @@ public class Signup extends HttpServlet {
 				
 				PreparedStatement ps = conn.prepareStatement(addQuery);
 				ps.executeUpdate(addQuery);
+				//System.out.println(i);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

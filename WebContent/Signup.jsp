@@ -32,6 +32,7 @@
 		<div>
 			<label>Are you a..</label>
 			<select name="accessType">
+				<option value="empty"></option>
 				<option value="Patron">Patron</option>
 				<option value="Staff">Staff</option>
 			</select>

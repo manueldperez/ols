@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Advanced Search</title>
+<title>Add Inventory</title>
 </head>
 <body>
 
@@ -16,19 +16,41 @@
 		}
 	%>
 
-	<h2> Sign Up</h2>
-	<form action="AdvSearch" method="post">
+	<h2>Add Inventory</h2>
+	<form action="addInventory" method="post">
 		<div>
-			<!-- <label>Enter First Name:</label> -->
-			<input type="text" name="author" placeholder="Author">
-		</div>
-		<div>
-			<!-- <label>Enter Last Name:</label -->
 			<input type="text" name="title" placeholder="Title">
 		</div>
 		<div>
-			<!-- <label>Enter Username:</label> -->
-			<input type="text" name="keyword" placeholder="Keyword">
+			<input type="text" name="author" placeholder="Author">
+		</div>
+		<div>
+			<textarea name="message" placeholder="Book Description"></textarea>
+		</div>
+		<div>
+			<input type="text" name="publisher" placeholder="Publisher">
+		</div>
+		<div>
+			<label>Type of Material</label>
+			<select name="material_type">
+				<option value="empty"></option>
+				<option value="Kindle Book">Kindle Book</option>
+				<option value="OverDrive_Read">OverDrive Read</option>
+				<option value="EPUB">EPUB Book</option>
+				<option value="PDF_eBook">PDF eBook</option>
+			</select>
+		</div>
+		<div>
+			<label>Release Date: </label>
+			<input type="date" name="release_date">
+		</div>
+		<div>
+			<label>File Size (Optional): </label>
+			<input type="number" name="fileSize">
+		</div>
+		<div>
+			<label>ISBN (Optional): </label>
+			<input type="text" name="ISBN">
 		</div>
 		<div>
 			<label>Genre</label>
@@ -70,17 +92,24 @@
 			</select>
 		</div>
 		<div>
-			<label>Type of Material</label>
-			<select name="material_type">
-				<option value="Kindle Book">Kindle Book</option>
-				<option value="OverDrive_Read">OverDrive Read</option>
-				<option value="EPUB">EPUB Book</option>
-				<option value="PDF_eBook">PDF eBook</option>
+			<label>Category</label>
+			<select name="category">
+				<option value="empty"></option>
+				<option value="book">Book</option>
+				<option value="movie">Movie</option>
 			</select>
+		</div>
+		<div>
+			<label for="img">Select Book Cover Image:</label>
+  			<input type="file" id="img" name="img" accept="image/*">
+		</div>
+		<div>
+			<input type="text" name="digRightsInfo" placeholder="Digital Rights Information">
 		</div>
 		<input type="submit" value="Submit">
 		
 	</form>
+
 
 </body>
 </html>
