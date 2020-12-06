@@ -5,6 +5,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="edu.sdsu.mdperez.dao.DBConnection" %>
+<%@page import="javax.servlet.http.HttpSession" %>
 
 <%
 String id = request.getParameter("userid");
@@ -19,6 +20,10 @@ e.printStackTrace();
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
+
+HttpSession session = request.getSession();
+
+
 %>
 
 <!DOCTYPE html>
@@ -57,5 +62,6 @@ ResultSet resultSet = null;
 	}
 	%>
 	</table>
+	<a href""
 </body>
 </html>

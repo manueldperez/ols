@@ -38,7 +38,6 @@ ResultSet resultSet = null;
 		
 	</tr>
 	<%
-	
 	try {
 		connection = DBConnection.getConnection();
 		statement = connection.createStatement();

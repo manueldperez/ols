@@ -31,6 +31,8 @@ public class Checkout extends HttpServlet {
 			
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.executeUpdate(query);
+			
+			response.sendRedirect("bookshelf.jsp");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
