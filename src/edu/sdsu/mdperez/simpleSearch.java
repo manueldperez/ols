@@ -33,9 +33,8 @@ public class simpleSearch extends HttpServlet {
 			ResultSet rs = ps.executeQuery(query);
 			
 			while(rs.next()) {
-				System.out.println(rs.getString(2));
+				response.sendRedirect("results.jsp");
 			}
-			
 		}
 		catch(Exception e) {
 			e.printStackTrace();

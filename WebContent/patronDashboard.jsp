@@ -24,7 +24,7 @@
 	<a href="history.jsp">View History</a>
 	<a href="bookshelf.jsp">View Bookshelf</a>
 	
-	<form action="simpleSearch" method="post">
+	<form action="results.jsp" method="post">
 		<input type="search" name="simpleSearch">
 	<button>Search</button>
 	</form>

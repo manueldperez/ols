@@ -46,7 +46,7 @@
 		</div>
 		<div>
 			<label>File Size (Optional): </label>
-			<input type="number" name="fileSize">
+			<input type="number" name="fileSize" step="0.01">
 		</div>
 		<div>
 			<label>ISBN (Optional): </label>

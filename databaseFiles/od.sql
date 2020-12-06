@@ -67,7 +67,7 @@ CREATE TABLE `inventory` (
   `return_date` datetime DEFAULT NULL,
   `checked_out_by` int DEFAULT NULL,
   `overdue_by` int DEFAULT NULL,
-  `amt_overdue` int DEFAULT NULL,
+  `amt_overdue` decimal(4,2) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   FULLTEXT KEY `author` (`author`,`title`,`publisher`,`genre`,`extra_genre`,`extra_genre2`,`material_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -128,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 21:07:53
+-- Dump completed on 2020-12-05 21:34:14
