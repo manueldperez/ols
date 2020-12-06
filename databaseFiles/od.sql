@@ -71,7 +71,7 @@ CREATE TABLE `inventory` (
   PRIMARY KEY (`product_id`),
   FULLTEXT KEY `author` (`author`,`title`,`publisher`,`genre`,`extra_genre`,`extra_genre2`,`material_type`),
   FULLTEXT KEY `author_2` (`author`,`title`,`genre`,`extra_genre`,`extra_genre2`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights',NULL,7,NULL,NULL),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right',NULL,6,NULL,NULL);
+INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights',NULL,8,NULL,NULL),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right',NULL,6,NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 11:38:27
+-- Dump completed on 2020-12-06 13:51:54

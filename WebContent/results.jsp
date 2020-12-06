@@ -11,16 +11,16 @@ String id = request.getParameter("userid");
 String driver = "com.mysql.cj.jdbc.Driver";
 
 try {
-	Class.forName(driver);
+Class.forName(driver);
 } catch (ClassNotFoundException e) {
-	e.printStackTrace();
+e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 
-
-
+int[] productId = new int[10];
+int i = 0;
 %>
 
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ ResultSet resultSet = null;
 				+ "AGAINST('+"+keyword+"')";
 		resultSet = statement.executeQuery(query);
 		while(resultSet.next()){
-			
+			productId[i] = Integer.parseInt(resultSet.getString("product_id"));
 	%>
 	<tr>
 		<td><%=resultSet.getString("title") %></td>
@@ -73,11 +73,12 @@ ResultSet resultSet = null;
 		<td><%=resultSet.getString("category") %></td>
 		<td>
 			<form action="Checkout" method="post">
-				<button type="button"></button>
+				<button type="submit" name="product_id" value="<%=productId[i]%>">Check Out!</button>
 			</form>
 		</td>
 	</tr>
 	<%
+	i++;
 	}
 	connection.close();
 	} catch (Exception e) {
