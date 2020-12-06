@@ -33,7 +33,7 @@ public class simpleSearch extends HttpServlet {
 			ResultSet rs = ps.executeQuery(query);
 			
 			while(rs.next()) {
-				System.out.println(rs.getString(2) );
+				System.out.println(rs.getString(2));
 			}
 			
 		}

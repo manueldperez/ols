@@ -23,13 +23,12 @@ public class advSearch extends HttpServlet {
 		String title = request.getParameter("title");
 		String keyword = request.getParameter("keyword");
 		String genre = request.getParameter("genre");
-		String extra_genre = request.getParameter("extra_genre");
-		String extra_genre2 = request.getParameter("extra_genre2");
 		String material_type = request.getParameter("material_type");
 		
-		String query = "SELECT author, title, genre, extra_genre, extra_genre2, material_type FROM inventory "
-				+ "WHERE MATCH(author, title, genre, extra_genre, extra_genre2, material_type) "
-				+ "AGAINST('+"+keyword+"' IN BOOLEAN MODE)";
+		String query = "SELECT author, title, publisher, genre, extra_genre, extra_genre2, material_type "
+				+ "FROM inventory "
+				+ "WHERE MATCH(author, title, publisher, genre, extra_genre, extra_genre2, material_type) "
+				+ "AGAINST(\""+author+" "+title+" "+keyword+" "+genre+" "+material_type+"\" IN BOOLEAN MODE)";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -40,7 +39,14 @@ public class advSearch extends HttpServlet {
 			ResultSet rs = ps.executeQuery(query);
 			
 			while(rs.next()) {
-				System.out.println(rs.getString(1) +"\n"+ rs.getString(2) +"\n"+ rs.getString(3));
+				System.out.println(rs.getNString(1) +" "+ rs.getNString(2) +" "+ rs.getNString(3) +" "+
+								   rs.getNString(4) +" "+ rs.getNString(5) +" "+ rs.getNString(6) +" "+
+								   rs.getNString(7));
+			}
+			
+			if (author.isBlank() && title.isBlank() && keyword.isBlank() && genre.isBlank() && 
+				material_type.isBlank()) {
+				response.sendRedirect("advSearch.jsp");
 			}
 			
 		}
