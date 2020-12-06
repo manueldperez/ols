@@ -5,7 +5,6 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="edu.sdsu.mdperez.dao.DBConnection" %>
-<%@page import="javax.servlet.http.HttpSession" %>
 
 <%
 String id = request.getParameter("userid");
@@ -13,16 +12,13 @@ String id = request.getParameter("userid");
 String driver = "com.mysql.cj.jdbc.Driver";
 
 try {
-Class.forName(driver);
+	Class.forName(driver);
 } catch (ClassNotFoundException e) {
-e.printStackTrace();
+	e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
-
-HttpSession session = request.getSession();
-
 
 %>
 
@@ -41,6 +37,7 @@ HttpSession session = request.getSession();
 	</tr>
 	<%
 	int currUser = (int) session.getAttribute("user_id");
+	String access_type = (String) session.getAttribute("access_type");
 	try {
 		
 		connection = DBConnection.getConnection();
@@ -62,6 +59,7 @@ HttpSession session = request.getSession();
 	}
 	%>
 	</table>
-	<a href""
+	<% if (access_type.equals("Patron")) { %> <a href"patronDashboard.jsp">Dashboard</a> <% } %>
+	<% else if (access_type.equals("Staff")) { %> <a href"staffDashboard">Dashboard</a> <% } %>
 </body>
 </html>
