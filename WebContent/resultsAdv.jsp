@@ -11,16 +11,13 @@ String id = request.getParameter("userid");
 String driver = "com.mysql.cj.jdbc.Driver";
 
 try {
-	Class.forName(driver);
+Class.forName(driver);
 } catch (ClassNotFoundException e) {
-	e.printStackTrace();
+e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
-
-
-
 %>
 
 <!DOCTYPE html>
@@ -43,7 +40,6 @@ ResultSet resultSet = null;
 		<td>Additional Genre</td>
 		<td>Additional Genre</td>
 		<td>Category</td>
-		<td>Check Out</td>
 		
 	</tr>
 	<%
@@ -51,14 +47,21 @@ ResultSet resultSet = null;
 	try {
 		connection = DBConnection.getConnection();
 		statement = connection.createStatement();
-		String keyword = request.getParameter("simpleSearch");
 		
-		String query = "SELECT * "
-				+ "FROM inventory WHERE MATCH(author, title, publisher, material_type, genre, extra_genre, extra_genre2) "
-				+ "AGAINST('+"+keyword+"')";
+		String author = request.getParameter("author");
+		String title = request.getParameter("title");
+		String keyword = request.getParameter("keyword");
+		String genre = request.getParameter("genre");
+		String material_type = request.getParameter("material_type");
+		
+		
+		String query = "SELECT author, title, publisher, genre, extra_genre, extra_genre2, material_type "
+				+ "FROM inventory "
+				+ "WHERE MATCH(author, title, publisher, genre, extra_genre, extra_genre2, material_type) "
+				+ "AGAINST(\""+author+" "+title+" "+keyword+" "+genre+" "+material_type+"\" IN BOOLEAN MODE)";
+		
 		resultSet = statement.executeQuery(query);
 		while(resultSet.next()){
-			
 	%>
 	<tr>
 		<td><%=resultSet.getString("title") %></td>
@@ -71,11 +74,6 @@ ResultSet resultSet = null;
 		<td><%=resultSet.getString("extra_genre") %></td>
 		<td><%=resultSet.getString("extra_genre2") %></td>
 		<td><%=resultSet.getString("category") %></td>
-		<td>
-			<form action="Checkout" method="post">
-				<button type="button"></button>
-			</form>
-		</td>
 	</tr>
 	<%
 	}

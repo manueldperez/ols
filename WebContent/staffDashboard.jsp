@@ -24,8 +24,9 @@
 	<a href="history.jsp">View History</a>
 	<a href="addInventory.jsp">Add Inventory</a>
 	<a href="announcement.jsp">Add Announcement</a>
+	<a href="advSearch.jsp">Advanced Search</a>
 	
-	<form action="simpleSearch" method="post">
+	<form action="results.jsp" method="post">
 		<input type="search" name="simpleSearch">
 	<button>Search</button>
 	</form>

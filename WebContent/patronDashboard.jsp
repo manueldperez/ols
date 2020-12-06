@@ -23,6 +23,7 @@
 	<a href="fines.jsp">View Fines</a>
 	<a href="history.jsp">View History</a>
 	<a href="bookshelf.jsp">View Bookshelf</a>
+	<a href="advSearch.jsp">Advanced Search</a>
 	
 	<form action="results.jsp" method="post">
 		<input type="search" name="simpleSearch">

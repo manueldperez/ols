@@ -17,7 +17,7 @@
 	%>
 
 	<h2>Advanced Search</h2>
-	<form action="AdvSearch" method="post">
+	<form action="advResults.jsp" method="post">
 		<div>
 			<input type="text" name="author" placeholder="Author">
 		</div>

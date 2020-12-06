@@ -69,7 +69,8 @@ CREATE TABLE `inventory` (
   `overdue_by` int DEFAULT NULL,
   `amt_overdue` decimal(4,2) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
-  FULLTEXT KEY `author` (`author`,`title`,`publisher`,`genre`,`extra_genre`,`extra_genre2`,`material_type`)
+  FULLTEXT KEY `author` (`author`,`title`,`publisher`,`genre`,`extra_genre`,`extra_genre2`,`material_type`),
+  FULLTEXT KEY `author_2` (`author`,`title`,`genre`,`extra_genre`,`extra_genre2`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,7 +107,7 @@ CREATE TABLE `users` (
   `materials_returned_id` int DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +116,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(4,'asdf','g','g','g','g@g','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(5,'asd','asd','asd','asd','asd@asd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(6,'Lety','Olguin','gletisiaor','papssword','gletisia@mail.net','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(7,'patron','patron','patron','pass','patron@patron.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(8,'staff','staff','staff','pass','staff@staff.com','Staff',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(4,'asdf','g','g','g','g@g','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(5,'asd','asd','asd','asd','asd@asd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(6,'Lety','Olguin','gletisiaor','papssword','gletisia@mail.net','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(7,'patron','patron','patron','pass','patron@patron.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(8,'staff','staff','staff','pass','staff@staff.com','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(9,'David','Perez','zPhM','password','zphm@gmail.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -128,4 +129,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 21:34:14
+-- Dump completed on 2020-12-06 11:38:27
