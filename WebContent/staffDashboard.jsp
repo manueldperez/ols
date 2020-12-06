@@ -23,6 +23,7 @@
 	<a href="fines.jsp">View Fines</a>
 	<a href="history.jsp">View History</a>
 	<a href="addInventory.jsp">Add Inventory</a>
+	<a href="announcement.jsp">Add Announcement</a>
 	
 	<form action="simpleSearch" method="post">
 		<input type="search" name="simpleSearch">

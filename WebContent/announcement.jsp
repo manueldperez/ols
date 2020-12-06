@@ -16,7 +16,17 @@
 		}
 	%>
 	
-	This will be a page.
+	<h2>Add Inventory</h2>
+	<form action="announce" method="post">
+		<div>
+			<input type="text" name="title" placeholder="Title of Announcement">
+		</div>
+		<div>
+			<textarea name="message" placeholder="Announcement Text"></textarea>
+		</div>
+		<input type="submit" value="Submit">
+		
+	</form>
 
 </body>
 </html>
