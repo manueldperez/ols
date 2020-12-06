@@ -21,15 +21,15 @@ public class Login extends HttpServlet {
 		String passwd = request.getParameter("passwd");
 		
 		LoginDao dao = new LoginDao();
+		accessType acctype = new accessType();
+		HttpSession session = request.getSession();
 		
 		try {
 			int user_id = dao.validate(username, passwd);
 			if (user_id != -1) {
-				HttpSession session = request.getSession();
+				String user_access = acctype.userAccess(user_id);
 				session.setAttribute("username", username);
 				session.setAttribute("user_id", user_id);
-				accessType acctype = new accessType();
-				String user_access = acctype.userAccess(user_id);
 				session.setAttribute("user_access", user_access);
 				if (user_access.equals("Patron")) {
 					response.sendRedirect("patronDashboard.jsp");

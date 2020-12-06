@@ -21,7 +21,6 @@ public class accessType {
 			
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				System.out.println(rs.getNString(1));
 				return rs.getNString(1);
 			}
 			
