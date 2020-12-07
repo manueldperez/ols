@@ -17,6 +17,16 @@
 	%>
 
 	<h2>Add Inventory</h2>
+	
+	<%
+		String accessType = (String) session.getAttribute("user_access");
+	%>
+	<div>
+		<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+		<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
+	</div>
+	<br>
+	
 	<form action="addInventory" method="post">
 		<div>
 			<input type="text" name="title" placeholder="Title">

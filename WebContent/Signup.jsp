@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h2> Sign Up</h2>
+	<div><a href="login.jsp">Dashboard</a></div> <br>
 	<form action="Signup" method="post">
 		<div>
 			<!-- <label>Enter First Name:</label> -->

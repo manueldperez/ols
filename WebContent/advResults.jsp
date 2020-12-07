@@ -31,6 +31,16 @@ int i = 0;
 </head>
 <body>
 	<h1>Advanced Search Results:</h1>
+	
+	<%
+		String accessType = (String) session.getAttribute("user_access");
+	%>
+	<div>
+		<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+		<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
+	</div>
+	<br>
+	
 	<table border="1">
 	<tr>
 		<td>Title</td>

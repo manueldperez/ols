@@ -15,8 +15,18 @@
 			response.sendRedirect("login.jsp");
 		}
 	%>
+	
+	<%
+		String accessType = (String) session.getAttribute("user_access");
+	%>
 
 	<h2>Advanced Search</h2>
+	<div>
+		<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+		<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
+	</div>
+	<br>
+	
 	<form action="advResults.jsp" method="post">
 		<div>
 			<input type="text" name="author" placeholder="Author">

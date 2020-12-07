@@ -28,6 +28,15 @@ ResultSet resultSet = null;
 </head>
 <body>
 	<h1>History:</h1>
+	<%
+		String accessType = (String) session.getAttribute("user_access");
+	%>
+	<div>
+		<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+		<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
+	</div>
+	<br>
+	
 	<table border="1">
 	<tr>
 		<th>Title</th>
@@ -56,5 +65,6 @@ ResultSet resultSet = null;
 	}
 	%>
 	</table>
+	
 </body>
 </html>

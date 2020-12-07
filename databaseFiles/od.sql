@@ -26,8 +26,7 @@ CREATE TABLE `announcement` (
   `user_id` int NOT NULL,
   `time_of_ann` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title` varchar(45) NOT NULL,
-  `announcement_text` varchar(1000) NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `announcement_text` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,7 +59,7 @@ CREATE TABLE `checkoutLog` (
 
 LOCK TABLES `checkoutLog` WRITE;
 /*!40000 ALTER TABLE `checkoutLog` DISABLE KEYS */;
-INSERT INTO `checkoutLog` VALUES (3,'The Perks of Being a Wallflower'),(7,'The Perks of Being a Wallflower'),(8,'The Perks of Being A Wallflower'),(8,'The Perks of Being a Wallflower'),(3,'The Perks of Being a Wallflower'),(8,'The Shining'),(10,'The Perks of Being a Wallflower'),(10,'The Shining');
+INSERT INTO `checkoutLog` VALUES (3,'The Perks of Being a Wallflower'),(7,'The Perks of Being a Wallflower'),(8,'The Perks of Being A Wallflower'),(8,'The Perks of Being a Wallflower'),(3,'The Perks of Being a Wallflower'),(8,'The Shining'),(10,'The Perks of Being a Wallflower'),(10,'The Shining'),(7,'The Perks of Being a Wallflower'),(8,'The Shining');
 /*!40000 ALTER TABLE `checkoutLog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +101,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights','2020-12-27',10,'2020-12-06 20:45:22'),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right','2020-12-27',10,'2020-12-06 20:45:31');
+INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights','2020-12-28',7,'2020-12-07 10:28:09'),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right','2020-12-28',8,'2020-12-07 10:29:06');
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 21:05:26
+-- Dump completed on 2020-12-07 10:34:15

@@ -28,6 +28,17 @@ ResultSet resultSet = null;
 </head>
 <body>
 	<h1>Welcome to your Bookshelf!</h1>
+	
+	<%
+		String accessType = (String) session.getAttribute("user_access");
+	%>
+	
+	<div>
+		<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+		<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
+	</div>
+	<br>
+	
 	<table border="1">
 	<tr>
 		<td>Title</td>
@@ -35,7 +46,7 @@ ResultSet resultSet = null;
 	</tr>
 	<%
 	int currUser = (int) session.getAttribute("user_id");
-	String accessType = (String) session.getAttribute("user_access");
+
 	try {
 		
 		connection = DBConnection.getConnection();
@@ -57,7 +68,5 @@ ResultSet resultSet = null;
 	}
 	%>
 	</table>
-	<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
-	<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
 </body>
 </html>
