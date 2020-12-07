@@ -50,8 +50,7 @@ DROP TABLE IF EXISTS `checkoutLog`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `checkoutLog` (
   `user_id` int NOT NULL,
-  `title` varchar(45) NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `title` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,7 +60,7 @@ CREATE TABLE `checkoutLog` (
 
 LOCK TABLES `checkoutLog` WRITE;
 /*!40000 ALTER TABLE `checkoutLog` DISABLE KEYS */;
-INSERT INTO `checkoutLog` VALUES (7,'The Perks of Being a Wallflower'),(8,'The Perks of Being A Wallflower');
+INSERT INTO `checkoutLog` VALUES (3,'The Perks of Being a Wallflower'),(7,'The Perks of Being a Wallflower'),(8,'The Perks of Being A Wallflower'),(8,'The Perks of Being a Wallflower'),(3,'The Perks of Being a Wallflower'),(8,'The Shining'),(10,'The Perks of Being a Wallflower'),(10,'The Shining');
 /*!40000 ALTER TABLE `checkoutLog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +87,7 @@ CREATE TABLE `inventory` (
   `category` varchar(45) NOT NULL,
   `book_cover_img` blob,
   `dig_rights_info` varchar(45) DEFAULT NULL,
-  `return_date` datetime DEFAULT NULL,
+  `return_date` date DEFAULT NULL,
   `checked_out_by` int DEFAULT NULL,
   `day_checked_out` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`product_id`),
@@ -103,7 +102,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights','2020-12-27 16:26:40',7,'2020-12-06 16:26:40'),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right','2020-12-27 16:20:50',8,'2020-12-06 16:20:50');
+INSERT INTO `inventory` VALUES (1,'The Perks of Being a Wallflower','Stephen Chbosky','The Perks of Being a Wallflower is a young adult coming-of-age epistolary novel by American writer Stephen Chbosky, which was first published on February 1, 1999, by Pocket Books.','Pocket Books','PDF_eBook','1999-02-01',9.00,'123','Young_Adult','Fiction','Romance','book','','digital rights','2020-12-27',10,'2020-12-06 20:45:22'),(2,'The Shining','Stephen King','The Shining centers on the life of Jack Torrance, a struggling writer and recovering alcoholic who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies. His family accompanies him on this job, including his young son Danny Torrance, who possesses \"the shining\", an array of psychic abilities that allow Danny to see the hotel\'s horrific past. Soon, after a winter storm leaves them snowbound, the supernatural forces inhabiting the hotel influence Jack\'s sanity, leaving his wife and son in incredible danger.','Doubleday','PDF_eBook','1977-01-28',3.00,'456','Horror','Fiction',NULL,'book',NULL,'dig right','2020-12-27',10,'2020-12-06 20:45:31');
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +129,7 @@ CREATE TABLE `users` (
   `materials_returned_id` int DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +138,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(4,'asdf','g','g','g','g@g','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(5,'asd','asd','asd','asd','asd@asd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(6,'Lety','Olguin','gletisiaor','papssword','gletisia@mail.net','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(7,'patron','patron','patron','pass','patron@patron.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(8,'staff','staff','staff','pass','staff@staff.com','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(9,'David','Perez','zPhM','password','zphm@gmail.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Manuel','Perez','','','mdperez@sdsu.edu','',1,1,0.00,1,2,3),(2,'test','test','','','test@test.com','',1,1,0.00,1,2,3),(3,'fd','fd','fd','fd','fd@fd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(4,'asdf','g','g','g','g@g','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(5,'asd','asd','asd','asd','asd@asd','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(6,'Lety','Olguin','gletisiaor','papssword','gletisia@mail.net','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(7,'patron','patron','patron','pass','patron@patron.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(8,'staff','staff','staff','pass','staff@staff.com','Staff',NULL,NULL,NULL,NULL,NULL,NULL),(9,'David','Perez','zPhM','password','zphm@gmail.com','Patron',NULL,NULL,NULL,NULL,NULL,NULL),(10,'a','a','a','a','a@a','Patron',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -152,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 16:36:45
+-- Dump completed on 2020-12-06 21:05:26

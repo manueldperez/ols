@@ -5,48 +5,47 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="edu.sdsu.mdperez.dao.DBConnection" %>
-
 <%
+String id = request.getParameter("userid");
+
 String driver = "com.mysql.cj.jdbc.Driver";
 
 try {
-	Class.forName(driver);
+Class.forName(driver);
 } catch (ClassNotFoundException e) {
-	e.printStackTrace();
+e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
-
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bookshelf</title>
+<title>History</title>
 </head>
 <body>
-	<h1>Welcome to your Bookshelf!</h1>
+	<h1>History:</h1>
 	<table border="1">
 	<tr>
-		<td>Title</td>
-		<td>Author</td>
+		<th>Title</th>
+		
 	</tr>
 	<%
-	int currUser = (int) session.getAttribute("user_id");
-	String accessType = (String) session.getAttribute("user_access");
 	try {
-		
 		connection = DBConnection.getConnection();
 		statement = connection.createStatement();
-		String sql = "SELECT * FROM inventory WHERE checked_out_by="+ currUser;
-		resultSet = statement.executeQuery(sql);
+		int currUser = (int) session.getAttribute("user_id");
+		
+		String query = "SELECT * FROM checkoutLog WHERE user_id =" + currUser;
+				
+		resultSet = statement.executeQuery(query);
 		while(resultSet.next()){
 	%>
 	<tr>
 		<td><%=resultSet.getString("title") %></td>
-		<td><%=resultSet.getString("author") %></td>
 		
 	</tr>
 	<%
@@ -57,7 +56,5 @@ ResultSet resultSet = null;
 	}
 	%>
 	</table>
-	<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
-	<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
 </body>
 </html>
