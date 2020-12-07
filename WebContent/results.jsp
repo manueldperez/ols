@@ -75,9 +75,9 @@ int i = 0;
 		</td>
 	</tr>
 	<%
-	i++;
-	}
-	connection.close();
+		i++;
+		}
+		connection.close();
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
