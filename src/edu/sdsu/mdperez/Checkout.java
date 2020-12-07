@@ -23,7 +23,6 @@ public class Checkout extends HttpServlet {
 		HttpSession session = request.getSession();
 		int user_id = (int) session.getAttribute("user_id");
 		int productId = Integer.parseInt(request.getParameter("product_id"));
-		System.out.println(productId);
 		
 		String query = "SELECT title FROM inventory WHERE product_id="+productId;
 		
@@ -35,7 +34,6 @@ public class Checkout extends HttpServlet {
 			ResultSet rs = ps.executeQuery(query);
 			if (rs.next()) {
 				session.setAttribute("title", rs.getNString(1));
-				System.out.println(session.getAttribute("title"));
 			}
 			
 			String query2 = "UPDATE inventory SET checked_out_by = "+user_id+", day_checked_out = NOW(), return_date = DATE_ADD(NOW(), "
