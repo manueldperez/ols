@@ -64,9 +64,7 @@ ResultSet resultSet = null;
 	
 	<tfoot>
 			<%
-			currUser = (int) session.getAttribute("user_id");
 			try {
-				
 				connection = DBConnection.getConnection();
 				statement = connection.createStatement();
 				String sql = "SELECT * FROM users WHERE user_id="+ currUser;

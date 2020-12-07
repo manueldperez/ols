@@ -7,9 +7,7 @@
 <%@page import="edu.sdsu.mdperez.dao.DBConnection" %>
 <%
 String id = request.getParameter("userid");
-
 String driver = "com.mysql.cj.jdbc.Driver";
-
 try {
 	Class.forName(driver);
 } catch (ClassNotFoundException e) {
@@ -18,7 +16,6 @@ try {
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
-
 int[] productId = new int[10];
 int i = 0;
 %>

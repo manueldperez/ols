@@ -7,8 +7,6 @@
 <%@page import="edu.sdsu.mdperez.dao.DBConnection" %>
 
 <%
-String id = request.getParameter("userid");
-
 String driver = "com.mysql.cj.jdbc.Driver";
 
 try {
@@ -37,7 +35,7 @@ ResultSet resultSet = null;
 	</tr>
 	<%
 	int currUser = (int) session.getAttribute("user_id");
-	String access_type = (String) session.getAttribute("access_type");
+	String accessType = (String) session.getAttribute("user_access");
 	try {
 		
 		connection = DBConnection.getConnection();
@@ -59,7 +57,7 @@ ResultSet resultSet = null;
 	}
 	%>
 	</table>
-	<% if (access_type.equals("Patron")) { %> <a href"patronDashboard.jsp">Dashboard</a> <% } %>
-	<% else if (access_type.equals("Staff")) { %> <a href"staffDashboard">Dashboard</a> <% } %>
+	<% if (accessType.equals("Patron")) { %> <a href="patronDashboard.jsp">Dashboard</a> <% } %>
+	<% if (accessType.equals("Staff")) { %> <a href="staffDashboard.jsp">Dashboard</a> <% } %>
 </body>
 </html>
