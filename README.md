@@ -1,3 +1,8 @@
+The Online Library System supports the ability to manage inventory of library books inside a database. We allow the staff members to modify the library inventory, create event announcements, assess fines, and view reports. We allow the users to search for specific library materials, and to be able to checkout or reserve those materials.
+
+What I learned:
+This project allowed me to learn how databases work. I was in charge of designing the database as well as implementing it with the frontend in order to validate, display, and add information to/from the database. I also learned the basics of how the frontend works, since I was tasked with making an intuitive user experience.
+
 Build Instructions:
 
 The tools needed to run this application are: Eclipse for Java EE development, Java SE 9.0 or newer, Apache Tomcat v9.0.40 and also its source code distribution file, MySQL, JDBC Driver for MySQL, MySQL Workbench (optional).
